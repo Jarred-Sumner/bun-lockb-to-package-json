@@ -48,13 +48,16 @@ function toPackageJSON(
   }
   let scripts = pkg.scripts;
   let workspaces = [];
+  const workspacesSet = new Set();
   for (let depID of pkg.dependencies || []) {
     const dependency = lockfile.dependencies[depID];
     if (!dependency) continue;
     if (dependency.behavior.workspace) {
-      workspaces.push(dependency.literal);
-      if (collectWorkspaceIDs && dependency.package_id) {
-        collectWorkspaceIDs.push(dependency.package_id);
+      if (collectWorkspaceIDs) {
+        workspacesSet.add(dependency.literal);
+        if (dependency.package_id) {
+          collectWorkspaceIDs.push(dependency.package_id);
+        }
       }
     }
     if (dependency.behavior.normal) {
@@ -71,11 +74,8 @@ function toPackageJSON(
     }
   }
 
-  workspaces = [...new Set(workspaces)];
-  if (!collectWorkspaceIDs) {
-    workspaces = [];
-  }
-
+  const workspaces = [...workspacesSet];
+  
   if (!scripts) {
     scripts = undefined;
   }
