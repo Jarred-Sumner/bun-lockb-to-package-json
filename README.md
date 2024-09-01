@@ -1,7 +1,5 @@
 # bun.lockb2repo
 
-## Usage:
-
 Print a bun.lockb file as a package.json file
 
 ```bash
