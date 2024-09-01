@@ -14,12 +14,6 @@ Write a package.json file from a bun.lockb file to a specific folder, and also a
 bunx bun.lockb2repo <path-to-folder-containing-bun.lockb> [optional output folder]
 ```
 
-To install dependencies:
-
-```bash
-bun install
-```
-
 ## How long will this work for?
 
 No guarantees! This uses an API we only expose for internal testing purposes.
