@@ -1,16 +1,18 @@
 {
-  "name": "bun.lockb2repo",
-  "version": "0.0.1",
+  "name": "bun-lockb-to-package-json",
+  "version": "0.0.3",
   "description": "Convert bun.lockb to a repository with package.json, and workspace package.json files if present",
   "license": "MIT",
-  "main": "bun.lockb2repo.ts",
-  "bin": "bun.lockb2repo.ts",
+  "main": "bun-lockb-to-package-json.ts",
+  "bin": {
+    "bun-lockb-to-package-json": "./bun-lockb-to-package-json.ts"
+  },
   "type": "module",
   "devDependencies": {
     "@types/bun": "latest",
     "typescript": "^5.0.0"
   },
   "files": [
-    "bun.lockb2repo.ts"
+    "bun-lockb-to-package-json.ts"
   ]
 }
